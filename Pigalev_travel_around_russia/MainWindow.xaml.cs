@@ -23,9 +23,9 @@ namespace Pigalev_travel_around_russia
         public MainWindow()
         {
             InitializeComponent();
+            Base.BE = new BaseData();
             FrameClass.MainFrame = fMain;
             FrameClass.MainFrame.Navigate(new ToursPage());
-            Base.BE = new BaseData();
         }
     }
 }

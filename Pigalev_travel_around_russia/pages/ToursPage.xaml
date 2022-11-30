@@ -5,30 +5,80 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pigalev_travel_around_russia"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="1000"
-      FontSize="20"
+      d:DesignHeight="900" d:DesignWidth="1340"
+      FontSize="20" FontFamily="Comic Sans MS"
       Background="White" Title="Cписок туров">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
             <RowDefinition/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Button Content="Перейти к списку отелей" Grid.Row="0" Height="40" Width="250" HorizontalAlignment="Right" Margin="0, 0, 20, 0"/>
-        <Grid>
-            
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Введите текст для поиска " HorizontalAlignment="Right" Margin="5"/>
+                    <TextBlock Text="Выберите тип: " HorizontalAlignment="Right" Margin="5"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Width="300" HorizontalAlignment="Left" Margin="5" MaxLength="100"/>
+                    <ComboBox Name="cbType" Width="300" HorizontalAlignment="Left" Margin="5"/>
+                    <CheckBox Content="Только актуальные туры" HorizontalAlignment="Left" Margin="5"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                    <TextBlock Text="Общая стоимость туров:" HorizontalAlignment="Center"/>
+                    <TextBlock Name="tbTotalCost" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="Сортировка " HorizontalAlignment="Center"/>
+                    <ComboBox Name="cbSorting" Width="200">
+                        <ComboBoxItem>Без сортировки</ComboBoxItem>
+                        <ComboBoxItem>По возрастанию стоимости тура</ComboBoxItem>
+                        <ComboBoxItem>По убыванию стоимости тура</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
         </Grid>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Введите текст для поиска "/>
-                <TextBox Width="300"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Выберите тип: "/>
-                <ComboBox Width="300"/>
-            </StackPanel>
-            <CheckBox Content="Только актуальные туры"/>
-            
-        </StackPanel>
+        <Grid Grid.Row="1">
+            <ListView x:Name="lvListTour" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="10" CornerRadius="20" BorderThickness="1" BorderBrush="#445c93">
+                            <Grid Width="400" Height="400" Background="{Binding TimeColor}">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="24" Margin="10" TextWrapping="Wrap" TextAlignment="Center"/>
+                                    <Image Width="400" Height="220" Source="{Binding ImagePreview}"/>
+                                    <TextBlock Text="{Binding Price, StringFormat={}{0} РУБ}" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Margin="0,10,0,0"/>
+                                    <Grid Margin="0,20,0,0">
+                                        <TextBlock Text="{Binding Actual}" HorizontalAlignment="Left" Margin="10, 0, 0, 0" Foreground="{Binding ForegroundActual}"/>
+                                        <TextBlock Text="{Binding TicketCount, StringFormat={}Билетов: {0}}" HorizontalAlignment="Right" Margin="0, 0, 10, 0"/>
+                                    </Grid>
+                                </StackPanel>      
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Button Content="Перейти к списку отелей" Grid.Row="2" Height="40" Width="300" HorizontalAlignment="Right" Margin="0, 0, 20, 0"/>
     </Grid>
 </Page>

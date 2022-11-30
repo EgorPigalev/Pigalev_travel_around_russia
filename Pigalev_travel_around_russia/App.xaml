@@ -10,5 +10,6 @@
                 <Setter Property="FontSize" Value="24"/>
             </Style.Setters>
         </Style>
+        
     </Application.Resources>
 </Application>

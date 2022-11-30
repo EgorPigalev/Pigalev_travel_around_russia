@@ -23,6 +23,26 @@ namespace Pigalev_travel_around_russia
         public ToursPage()
         {
             InitializeComponent();
+            lvListTour.ItemsSource = Base.BE.Tour.ToList();
+            List<Type> types = Base.BE.Type.ToList();
+            cbType.Items.Add("Все типы");
+            for (int i = 0; i < types.Count; i++)
+            {
+                cbType.Items.Add(types[i].Name);
+            }
+            cbType.SelectedIndex = 0;
+            cbSorting.SelectedIndex = 0;
+            tbTotalCost.Text = Convert.ToString(GetTotalCost()) + " РУБ";
+        }
+        private double GetTotalCost() // Подсчёт общей стоимости туров
+        {
+            double summa = 0;
+            List<Tour> tours = Base.BE.Tour.ToList();
+            foreach(Tour tour in tours)
+            {
+                summa = summa + (double)tour.Price * (double)tour.TicketCount;
+            }
+            return summa;
         }
     }
 }

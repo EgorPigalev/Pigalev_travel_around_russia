@@ -83,6 +83,7 @@
     <Compile Include="HotelImage.cs">
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>
+    <Compile Include="classes\PartialTour.cs" />
     <Compile Include="Tour.cs">
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>
