@@ -1,0 +1,34 @@
+﻿<Page x:Class="Pigalev_travel_around_russia.ToursPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pigalev_travel_around_russia"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+      FontSize="20"
+      Background="White" Title="Cписок туров">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Перейти к списку отелей" Grid.Row="0" Height="40" Width="250" HorizontalAlignment="Right" Margin="0, 0, 20, 0"/>
+        <Grid>
+            
+        </Grid>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите текст для поиска "/>
+                <TextBox Width="300"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите тип: "/>
+                <ComboBox Width="300"/>
+            </StackPanel>
+            <CheckBox Content="Только актуальные туры"/>
+            
+        </StackPanel>
+    </Grid>
+</Page>

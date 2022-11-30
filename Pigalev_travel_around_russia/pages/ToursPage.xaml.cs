@@ -16,16 +16,13 @@ using System.Windows.Shapes;
 namespace Pigalev_travel_around_russia
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ToursPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ToursPage : Page
     {
-        public MainWindow()
+        public ToursPage()
         {
             InitializeComponent();
-            FrameClass.MainFrame = fMain;
-            FrameClass.MainFrame.Navigate(new ToursPage());
-            Base.BE = new BaseData();
         }
     }
 }

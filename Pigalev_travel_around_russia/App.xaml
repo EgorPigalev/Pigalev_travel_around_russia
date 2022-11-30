@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Pigalev_travel_around_russia"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="wMainStyle" TargetType="Window">
+            <Style.Setters>
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="FontSize" Value="24"/>
+            </Style.Setters>
+        </Style>
     </Application.Resources>
 </Application>

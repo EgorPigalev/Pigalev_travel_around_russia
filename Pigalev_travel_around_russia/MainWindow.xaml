@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pigalev_travel_around_russia"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Style="{StaticResource ResourceKey=wMainStyle}"
+        Title="Путешествуй по России" Height="650" MinHeight="650" Width="1000" MinWidth="1000">
     <Grid>
-        
+        <Frame Name = "fMain" NavigationUIVisibility="Hidden">
+
+        </Frame>
     </Grid>
 </Window>
