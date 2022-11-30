@@ -30,7 +30,7 @@ namespace Pigalev_travel_around_russia
             {
                 if (IsActual == true)
                 {
-                    SolidColorBrush actual = new SolidColorBrush(Color.FromRgb(68, 92, 147));
+                    SolidColorBrush actual = new SolidColorBrush(Color.FromRgb(186, 227, 232));
                     return actual;
                 }
                 else
