@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddUpdHotelPage.xaml.cs">
+      <DependentUpon>AddUpdHotelPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="classes\Base.cs" />
     <Compile Include="BaseData.cs">
       <AutoGen>True</AutoGen>
@@ -84,6 +87,9 @@
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>
     <Compile Include="classes\PartialTour.cs" />
+    <Compile Include="pages\HotelsPage.xaml.cs">
+      <DependentUpon>HotelsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tour.cs">
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>
@@ -96,6 +102,14 @@
     <Compile Include="TypeOfTour.cs">
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>
+    <Page Include="AddUpdHotelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\HotelsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

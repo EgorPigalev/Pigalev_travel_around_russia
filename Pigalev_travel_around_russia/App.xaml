@@ -28,5 +28,32 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="tbSearchRight" TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="tbSearchLeft" TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="MaxLength" Value="100"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="cbSearchAndSort" TargetType="ComboBox">
+            <Style.Setters>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Width" Value="300"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="pStyle" TargetType="Page">
+            <Style.Setters>
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Background" Value="White"/>
+            </Style.Setters>
+        </Style>
     </Application.Resources>
 </Application>

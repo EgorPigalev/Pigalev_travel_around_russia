@@ -68,6 +68,21 @@ namespace Pigalev_travel_around_russia
             tours.Distinct();
             return tours;
         }
+        private List<Tour> GetTourDescription(List<Tour> tours, string Description) // метод для нахождения туров с таким описанием
+        {
+            List<Tour> toursDescription = new List<Tour>();
+            foreach(Tour tour in tours)
+            {
+                if(tour.Description != null)
+                {
+                    if (tour.Description.ToLower().Contains(Description.ToLower()))
+                    {
+                        toursDescription.Add(tour);
+                    }
+                }
+            }
+            return toursDescription;
+        }
 
         void Filter()  // метод для одновременной фильтрации, поиска и сортировки
         {
@@ -84,9 +99,13 @@ namespace Pigalev_travel_around_russia
             {
                 tours = Base.BE.Tour.ToList();
             }
-            if (!string.IsNullOrWhiteSpace(tbSearch.Text))
+            if (!string.IsNullOrWhiteSpace(tbSearchName.Text)) // Поиск по наименованию
             {
-                tours = tours.Where(x => x.Name.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
+                tours = tours.Where(x => x.Name.ToLower().Contains(tbSearchName.Text.ToLower())).ToList();
+            }
+            if (!string.IsNullOrWhiteSpace(tbSearchDescription.Text)) // Поиск по описанию
+            {
+                tours = GetTourDescription(tours, tbSearchDescription.Text);
             }
             if (cbActual.IsChecked == true)
             {
@@ -117,6 +136,11 @@ namespace Pigalev_travel_around_russia
         private void cbActual_Checked(object sender, RoutedEventArgs e)
         {
             Filter();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new HotelsPage());
         }
     }
 }

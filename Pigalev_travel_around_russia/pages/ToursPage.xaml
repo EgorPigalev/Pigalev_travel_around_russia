@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:Pigalev_travel_around_russia"
       mc:Ignorable="d" 
       d:DesignHeight="900" d:DesignWidth="1340"
-      FontSize="20" FontFamily="Comic Sans MS"
-      Background="White" Title="Cписок туров">
+      Style="{StaticResource ResourceKey=pStyle}" Title="Cписок туров">
     <Page.Resources>
         <BitmapImage x:Key="defaultImage" UriSource="/resources/picture.png"/>
     </Page.Resources>
@@ -28,25 +27,35 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <TextBlock Text="Введите текст для поиска " HorizontalAlignment="Right" Margin="5"/>
-                    <TextBlock Text="Выберите тип: " HorizontalAlignment="Right" Margin="5, 10, 5, 5"/>
-                    <TextBlock Text="Сортировка " HorizontalAlignment="Right" Margin="5, 45, 5, 5"/>
+                    <TextBlock Text="Введите наименование тура " Style="{StaticResource ResourceKey=tbSearchRight}"/>
+                    <TextBlock Text="Введите описание тура " Style="{StaticResource ResourceKey=tbSearchRight}"/>
+                    <TextBlock Text="Выберите тип: " Style="{StaticResource ResourceKey=tbSearchRight}" Margin="5, 10, 5, 5"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <TextBox Name="tbSearch" Width="300" HorizontalAlignment="Left" Margin="5" MaxLength="100" SelectionChanged="TextBox_SelectionChanged"/>
-                    <ComboBox Name="cbType" Width="300" HorizontalAlignment="Left" Margin="5" SelectionChanged="cbType_SelectionChanged"/>
+                    <TextBox Name="tbSearchName" Style="{StaticResource ResourceKey=tbSearchLeft}" SelectionChanged="TextBox_SelectionChanged"/>
+                    <TextBox Name="tbSearchDescription" Style="{StaticResource ResourceKey=tbSearchLeft}" SelectionChanged="TextBox_SelectionChanged"/>
+                    <ComboBox Name="cbType" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=cbSearchAndSort}" SelectionChanged="cbType_SelectionChanged"/>
                     <CheckBox Name="cbActual" Content="Только актуальные туры" HorizontalAlignment="Left" Margin="5" Checked="cbActual_Checked" Unchecked="cbActual_Checked"/>
-                    <ComboBox Name="cbSorting" Width="300" HorizontalAlignment="Left" Margin="5" SelectionChanged="cbType_SelectionChanged">
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Общая стоимость туров:" HorizontalAlignment="Center"/>
+                    <TextBlock Name="tbTotalCost" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#445c93"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="Сортировка " HorizontalAlignment="Center"/>
+                    <ComboBox Name="cbSorting" HorizontalAlignment="Center" Style="{StaticResource ResourceKey=cbSearchAndSort}" SelectionChanged="cbType_SelectionChanged">
                         <ComboBoxItem>Без сортировки</ComboBoxItem>
                         <ComboBoxItem>По возрастанию стоимости тура</ComboBoxItem>
                         <ComboBoxItem>По убыванию стоимости тура</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
             </Grid>
-            <StackPanel Grid.Column="1">
-                <TextBlock Text="Общая стоимость туров:" HorizontalAlignment="Center"/>
-                <TextBlock Name="tbTotalCost" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#445c93"/>
-            </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <ListView x:Name="lvListTour" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -58,7 +67,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Padding="10" CornerRadius="20" BorderThickness="1" BorderBrush="#445c93">
-                            <Grid Width="400" Height="400" Background="{Binding TimeColor}">
+                            <Grid Width="400" Height="400">
                                 <StackPanel>
                                     <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="24" Margin="10" TextWrapping="Wrap" TextAlignment="Center"/>
                                     <Image Width="400" Height="220" Source="{Binding ImagePreview, TargetNullValue={StaticResource defaultImage}}"/>
@@ -74,6 +83,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Button Content="Перейти к списку отелей" Grid.Row="2" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Right" Margin="0, 0, 20, 0"/>
+        <Button Content="Перейти к списку отелей" Grid.Row="2" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Right" Margin="0, 0, 20, 0" Click="Button_Click" Cursor="Hand"/>
     </Grid>
 </Page>
