@@ -9,10 +9,74 @@
       Style="{StaticResource ResourceKey=pStyle}" Title="Список отелей">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="180"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
             <RowDefinition/>
             <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Button Content="Перейти к списку туров" Grid.Row="2" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="Button_Click" Cursor="Hand"/>
+        <TextBlock Text="Список отелей" FontSize="36" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Center" Grid.Column="0">
+                <TextBlock Text="Количество записей" HorizontalAlignment="Center"/>
+                <TextBlock Name="tbCountRecords" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#445c93"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Grid.Column="1">
+                <TextBlock Text="Количество страниц" HorizontalAlignment="Center"/>
+                <TextBlock Name="tbCountPages" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#445c93"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Grid.Column="2">
+                <TextBlock Text="Текущая страница" HorizontalAlignment="Center"/>
+                <TextBlock Name="tbСurrentPage" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#445c93"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name="dgHotel" FontSize="22" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во звёзд" Binding="{Binding CountOfStars}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country.Name}" Width="2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во туров" Binding="{Binding CountTour}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnUpd" Content="Изменить" Template="{StaticResource ResourceKey=CTButonMainPage}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="20">
+                <TextBlock Text="Кол-во записей на 1 странице: "/>
+                <TextBox x:Name="g" Width="300"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="txtNextFirst" Uid="next" Text=" в начало"/>
+                <TextBlock Name="txtPrev" Uid="prev" Text=" &lt;"/>
+                <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}"/>
+                <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}"/>
+                <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}"/>
+                <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}"/>
+                <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}"/>
+                <TextBlock Name="txtNext" Uid="next" Text=" &gt;"/>
+                <TextBlock Name="txtNextLast" Uid="next" Text=" в конец"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button Content="Перейти к списку туров" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="Button_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Удалить запись" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="200" Margin="0, 0, 10, 0"/>
+                <Button Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" Margin="0, 0, 10, 0"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

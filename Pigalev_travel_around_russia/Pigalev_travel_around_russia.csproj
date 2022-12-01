@@ -87,9 +87,14 @@
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>
     <Compile Include="classes\PartialTour.cs" />
+    <Compile Include="HotelOfTour.cs">
+      <DependentUpon>BaseData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="classes\PageChange.cs" />
     <Compile Include="pages\HotelsPage.xaml.cs">
       <DependentUpon>HotelsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="classes\PartialHotel.cs" />
     <Compile Include="Tour.cs">
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>

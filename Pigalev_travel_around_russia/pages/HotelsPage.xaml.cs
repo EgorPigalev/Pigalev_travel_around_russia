@@ -23,6 +23,8 @@ namespace Pigalev_travel_around_russia
         public HotelsPage()
         {
             InitializeComponent();
+            dgHotel.ItemsSource = Base.BE.Hotel.ToList();
+            tbCountRecords.Text = Convert.ToString(Base.BE.Hotel.ToList().Count);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
