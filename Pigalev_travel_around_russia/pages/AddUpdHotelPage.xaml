@@ -5,9 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pigalev_travel_around_russia"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddUpdHotelPage">
-
+      d:DesignHeight="900" d:DesignWidth="1340"
+      Style="{StaticResource ResourceKey=pStyle}" Title="AddUpdHotelPage">
     <Grid>
         
     </Grid>

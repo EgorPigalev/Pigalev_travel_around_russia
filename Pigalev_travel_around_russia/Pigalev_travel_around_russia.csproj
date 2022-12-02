@@ -64,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddUpdHotelPage.xaml.cs">
+    <Compile Include="pages\AddUpdHotelPage.xaml.cs">
       <DependentUpon>AddUpdHotelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="classes\Base.cs" />
@@ -107,7 +107,7 @@
     <Compile Include="TypeOfTour.cs">
       <DependentUpon>BaseData.tt</DependentUpon>
     </Compile>
-    <Page Include="AddUpdHotelPage.xaml">
+    <Page Include="pages\AddUpdHotelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
