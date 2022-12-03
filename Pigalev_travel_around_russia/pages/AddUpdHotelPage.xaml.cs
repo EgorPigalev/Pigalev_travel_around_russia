@@ -24,5 +24,14 @@ namespace Pigalev_travel_around_russia
         {
             InitializeComponent();
         }
+        public AddUpdHotelPage(Hotel hotel)
+        {
+            InitializeComponent();
+            tbHeader.Text = "Изменение существующего отеля";
+        }
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new HotelsPage());
+        }
     }
 }

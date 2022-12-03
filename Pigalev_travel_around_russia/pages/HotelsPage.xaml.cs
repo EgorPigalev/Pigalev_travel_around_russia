@@ -37,13 +37,6 @@ namespace Pigalev_travel_around_russia
             tbChangeCount.Text = "10";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            FrameClass.MainFrame.Navigate(new ToursPage());
-        }
-
-        bool First = false;
-
         private void GoPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             TextBlock tb = (TextBlock)sender;
@@ -84,7 +77,7 @@ namespace Pigalev_travel_around_russia
             dgHotel.ItemsSource = HotelsFilter.Skip(pc.CurrentPage * pc.CountPage - pc.CountPage).Take(pc.CountPage).ToList();
             tbСurrentPage.Text = pc.CurrentPage.ToString();
         }
-
+        bool First = false;
         private void tbChangeCount_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
@@ -107,6 +100,24 @@ namespace Pigalev_travel_around_russia
             }
             tbCountPages.Text = pc.CountPages.ToString();
             tbСurrentPage.Text = pc.CurrentPage.ToString();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new AddUpdHotelPage());
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new ToursPage());
+        }
+
+        private void btnUpd_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+            Hotel hotel = Base.BE.Hotel.FirstOrDefault(x => x.Id == index);
+            FrameClass.MainFrame.Navigate(new AddUpdHotelPage(hotel));
         }
     }
 }

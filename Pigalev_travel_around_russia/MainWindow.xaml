@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:Pigalev_travel_around_russia"
         mc:Ignorable="d"
         Style="{StaticResource ResourceKey=wMainStyle}"
-        Title="Путешествуй по России" Height="900" MinHeight="700" Width="1340" MinWidth="950">
+        Title="Путешествуй по России" Height="900" MinHeight="700" Width="1340" MinWidth="950" Icon="\resources\logo.png">
     <Grid>
-        <Frame Name = "fMain" NavigationUIVisibility="Hidden">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Name = "fMain" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2">
 
         </Frame>
     </Grid>

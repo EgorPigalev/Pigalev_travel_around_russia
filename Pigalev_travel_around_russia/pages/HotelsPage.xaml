@@ -44,7 +44,7 @@
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnUpd" Content="Изменить" Template="{StaticResource ResourceKey=CTButonMainPage}"/>
+                            <Button x:Name="btnUpd" Uid="{Binding Id}" Content="Изменить" Template="{StaticResource ResourceKey=CTButonMainPage}" Click="btnUpd_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -72,10 +72,10 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="4">
-            <Button Content="Перейти к списку туров" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="Button_Click"/>
+            <Button Name="btnBack" Content="Перейти к списку туров" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="btnBack_Click"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Удалить запись" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="200" Margin="0, 0, 10, 0"/>
-                <Button Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" Margin="0, 0, 10, 0"/>
+                <Button Name="btnDelete" Content="Удалить запись" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="200" Margin="0, 0, 10, 0"/>
+                <Button Name="btnAdd" Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" Margin="0, 0, 10, 0" Click="btnAdd_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

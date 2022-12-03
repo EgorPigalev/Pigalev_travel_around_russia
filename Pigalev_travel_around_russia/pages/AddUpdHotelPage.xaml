@@ -8,6 +8,35 @@
       d:DesignHeight="900" d:DesignWidth="1340"
       Style="{StaticResource ResourceKey=pStyle}" Title="AddUpdHotelPage">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <TextBlock Name="tbHeader" Text="Добавление нового отеля" Style="{StaticResource ResourceKey=tbHeader}"/>
+        <StackPanel Grid.Row="1"  VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Наименование" HorizontalAlignment="Right" Margin="5"/>
+                    <TextBlock Text="количество звезд" HorizontalAlignment="Right" Margin="5"/>
+                    <TextBlock Text="Страна" HorizontalAlignment="Right" Margin="5"/>
+                    <TextBlock Text="Описание:" HorizontalAlignment="Right" Margin="5"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Width="300" HorizontalAlignment="Left" Margin="5"/>
+                    <TextBox Width="300" HorizontalAlignment="Left" Margin="5"/>
+                    <TextBox Width="300" HorizontalAlignment="Left" Margin="5"/>
+                </StackPanel>
+            </Grid>
+            <TextBox Name="tbMultiLine" TextWrapping="Wrap" AcceptsReturn="True" Height="300" Width="650"/>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Button Name="btnBack" Content="Перейти к списку отелей" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="btnBack_Click"/>
+            <Button Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300"/>
+        </Grid>
     </Grid>
 </Page>
