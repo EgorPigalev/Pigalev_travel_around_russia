@@ -32,11 +32,11 @@
                     <ComboBox Name="cbCountry" Width="300" HorizontalAlignment="Left" Margin="5"/>
                 </StackPanel>
             </Grid>
-            <TextBox Name="tbMultiLine" TextWrapping="Wrap" AcceptsReturn="True" Height="300" Width="650"/>
+            <TextBox Name="tbDescription" TextWrapping="Wrap" AcceptsReturn="True" Height="300" Width="650"/>
         </StackPanel>
         <Grid Grid.Row="2">
             <Button Name="btnBack" Content="Перейти к списку отелей" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="btnBack_Click"/>
-            <Button Name="btnAddUpd" Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300"/>
+            <Button Name="btnAddUpd" Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" Click="btnAddUpd_Click"/>
         </Grid>
     </Grid>
 </Page>

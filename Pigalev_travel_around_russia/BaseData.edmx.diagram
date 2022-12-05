@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0d5bb8e3982a448e9c271755d18f7ca5" Name="Diagram1">
-        <EntityTypeShape EntityType="hotels18Model.Country" Width="1.5" PointX="0.75" PointY="6" />
-        <EntityTypeShape EntityType="hotels18Model.Hotel" Width="1.5" PointX="3" PointY="5.375" />
-        <EntityTypeShape EntityType="hotels18Model.HotelComment" Width="1.5" PointX="5.25" PointY="9.625" />
-        <EntityTypeShape EntityType="hotels18Model.HotelImage" Width="1.5" PointX="5.25" PointY="7.125" />
-        <EntityTypeShape EntityType="hotels18Model.HotelOfTour" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="hotels18Model.Tour" Width="1.5" PointX="3" PointY="1.375" />
-        <EntityTypeShape EntityType="hotels18Model.Type" Width="1.5" PointX="3" PointY="12.75" />
-        <EntityTypeShape EntityType="hotels18Model.TypeOfTour" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="hotels18Model.Country" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="hotels18Model.Hotel" Width="1.5" PointX="3" PointY="3.5" />
+        <EntityTypeShape EntityType="hotels18Model.HotelComment" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="hotels18Model.HotelImage" Width="1.5" PointX="5.25" PointY="8.25" />
+        <EntityTypeShape EntityType="hotels18Model.HotelOfTour" Width="1.5" PointX="8.25" PointY="3.875" />
+        <EntityTypeShape EntityType="hotels18Model.Tour" Width="1.5" PointX="6" PointY="11.5" />
+        <EntityTypeShape EntityType="hotels18Model.Type" Width="1.5" PointX="6" PointY="16" />
+        <EntityTypeShape EntityType="hotels18Model.TypeOfTour" Width="1.5" PointX="8.25" PointY="11.875" />
         <AssociationConnector Association="hotels18Model.FK_Hotel_Country" />
         <AssociationConnector Association="hotels18Model.FK_HotelComment_Hotel" />
         <AssociationConnector Association="hotels18Model.FK_HotelImage_Hotel" />

@@ -119,5 +119,22 @@ namespace Pigalev_travel_around_russia
             Hotel hotel = Base.BE.Hotel.FirstOrDefault(x => x.Id == index);
             FrameClass.MainFrame.Navigate(new AddUpdHotelPage(hotel));
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e) // Удаление выделенных отелей
+        {
+            foreach(Hotel hotel in dgHotel.SelectedItems)
+            {
+                if (MessageBox.Show("Вы уверены что хотите удалить отель \"" + hotel.Name + "\"?", "Системное сообщение", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    Base.BE.Hotel.Remove(hotel);
+                    MessageBox.Show("Отель \"" + hotel.Name + "\" был удалён");
+                }
+            }
+            Base.BE.SaveChanges();
+            dgHotel.ItemsSource = Base.BE.Hotel.ToList();
+            HotelsFilter = Base.BE.Hotel.ToList();
+            //tbChangeCount.Text = tbChangeCount.Text;
+            pc.CurrentPage = Convert.ToInt32(tbСurrentPage.Text);
+        }
     }
 }

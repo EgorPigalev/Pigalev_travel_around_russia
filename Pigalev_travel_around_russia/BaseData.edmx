@@ -101,7 +101,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HotelImage_Hotel">
-          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="HotelImage" Type="Self.HotelImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
@@ -350,7 +352,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HotelImage_Hotel">
-          <End Type="hotels18Model.Hotel" Role="Hotel" Multiplicity="1" />
+          <End Type="hotels18Model.Hotel" Role="Hotel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="hotels18Model.HotelImage" Role="HotelImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">

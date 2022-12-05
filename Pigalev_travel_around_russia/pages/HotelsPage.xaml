@@ -62,10 +62,10 @@
             <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Name="txtNextFirst" Uid="next" Visibility="{Binding VisibleButton[0]}" Text=" в начало " Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="txtNextFirst_MouseDown"/>
                 <TextBlock Name="txtPrev" Uid="prev" Text=" &lt; " Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
-                <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0], StringFormat={}{0}\ }" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
-                <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1], StringFormat={}{0}\ }" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
-                <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2], StringFormat={}{0}\ }" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
-                <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3], StringFormat={}{0}\ }" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0], StringFormat='{}{0}\ '}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown" Cursor="Hand"/>
+                <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1], StringFormat='{}{0}\ '}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2], StringFormat='{}{0}\ '}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3], StringFormat='{}{0}\ '}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown" Cursor="Hand"/>
                 <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4], StringFormat={}{0}}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown"/>
                 <TextBlock Name="txtNext" Uid="next" Text=" &gt; " Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="GoPage_MouseDown" Cursor="Hand"/>
                 <TextBlock Name="txtNextLast" Uid="next" Visibility="{Binding VisibleButton[1]}" Text=" в конец" Style="{StaticResource ResourceKey=tbButtonPagination}" MouseDown="txtNextLast_MouseDown" Cursor="Hand"/>
@@ -74,7 +74,7 @@
         <Grid Grid.Row="4">
             <Button Name="btnBack" Content="Перейти к списку туров" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="btnBack_Click"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btnDelete" Content="Удалить запись" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="200" Margin="0, 0, 10, 0"/>
+                <Button Name="btnDelete" Content="Удалить запись" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="200" Margin="0, 0, 10, 0" Click="btnDelete_Click"/>
                 <Button Name="btnAdd" Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" Margin="0, 0, 10, 0" Click="btnAdd_Click"/>
             </StackPanel>
         </Grid>
