@@ -25,16 +25,42 @@ namespace Pigalev_travel_around_russia
         public HotelsPage()
         {
             InitializeComponent();
+            uploadFields();            
+            tbChangeCount.Text = "10";
+            pc.VisibleButton[0] = "Hidden";
+            if (pc.CountPages > 5)
+            {
+                pc.VisibleButton[1] = "Visible";
+            }
+            else
+            {
+                pc.VisibleButton[1] = "Hidden";
+            }
+        }
+        public void uploadFields()
+        {
             dgHotel.ItemsSource = Base.BE.Hotel.ToList();
             tbCountRecords.Text = Convert.ToString(Base.BE.Hotel.ToList().Count);
             HotelsFilter = Base.BE.Hotel.ToList();
             pc.CountPage = Base.BE.Hotel.ToList().Count;
             tbCountPages.Text = pc.CountPages.ToString();
             tbСurrentPage.Text = pc.CurrentPage.ToString();
-            pc.VisibleButton[0] = "Hidden";
-            pc.VisibleButton[1] = "Hidden";
             DataContext = pc;
-            tbChangeCount.Text = "10";
+        }
+        public HotelsPage(string count)
+        {
+            InitializeComponent();
+            uploadFields();
+            tbChangeCount.Text = count;
+            pc.VisibleButton[0] = "Hidden";
+            if (pc.CountPages > 5)
+            {
+                pc.VisibleButton[1] = "Visible";
+            }
+            else
+            {
+                pc.VisibleButton[1] = "Hidden";
+            }
         }
 
         private void GoPage_MouseDown(object sender, MouseButtonEventArgs e)
@@ -128,6 +154,7 @@ namespace Pigalev_travel_around_russia
             }
             else
             {
+                int k = 0; // Колличество удалённых отелей
                 foreach (Hotel hotel in dgHotel.SelectedItems)
                 {
                     List<HotelOfTour> hotelOfTour = Base.BE.HotelOfTour.Where(x => x.HotelId == hotel.Id).ToList(); // Проверка что отель не входит в число подходящих для актуальных туров
@@ -144,10 +171,14 @@ namespace Pigalev_travel_around_russia
                     {
                         Base.BE.Hotel.Remove(hotel);
                         MessageBox.Show("Отель: \"" + hotel.Name + "\" был удалён");
+                        k++;
                     }
                 }
-                Base.BE.SaveChanges();
-                FrameClass.MainFrame.Navigate(new HotelsPage());
+                if(k != 0)
+                {
+                    Base.BE.SaveChanges();
+                    FrameClass.MainFrame.Navigate(new HotelsPage(tbChangeCount.Text));
+                }
             }
         }
     }
