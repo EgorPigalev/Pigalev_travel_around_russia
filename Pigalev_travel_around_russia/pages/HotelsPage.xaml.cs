@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -122,19 +122,33 @@ namespace Pigalev_travel_around_russia
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) // Удаление выделенных отелей
         {
-            foreach(Hotel hotel in dgHotel.SelectedItems)
+            if(dgHotel.SelectedItems.Count == 0)
             {
-                if (MessageBox.Show("Вы уверены что хотите удалить отель \"" + hotel.Name + "\"?", "Системное сообщение", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                {
-                    Base.BE.Hotel.Remove(hotel);
-                    MessageBox.Show("Отель \"" + hotel.Name + "\" был удалён");
-                }
+                MessageBox.Show("Для удаления не выбран ни один элемент");
             }
-            Base.BE.SaveChanges();
-            dgHotel.ItemsSource = Base.BE.Hotel.ToList();
-            HotelsFilter = Base.BE.Hotel.ToList();
-            //tbChangeCount.Text = tbChangeCount.Text;
-            pc.CurrentPage = Convert.ToInt32(tbСurrentPage.Text);
+            else
+            {
+                foreach (Hotel hotel in dgHotel.SelectedItems)
+                {
+                    List<HotelOfTour> hotelOfTour = Base.BE.HotelOfTour.Where(x => x.HotelId == hotel.Id).ToList(); // Проверка что отель не входит в число подходящих для актуальных туров
+                    foreach (HotelOfTour hotelOfTour1 in hotelOfTour)
+                    {
+                        if (hotelOfTour1.Tour.IsActual == true)
+                        {
+                            MessageBox.Show("Отель: \"" + hotel.Name + "\" не  может быть удалён так как он находится в числе подходящих отелей для актуальных туров");
+                            return;
+                        }
+                    }
+                    // Удаление отеля
+                    if (MessageBox.Show("Вы уверены что хотите удалить отель: \"" + hotel.Name + "\"?", "Системное сообщение", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    {
+                        Base.BE.Hotel.Remove(hotel);
+                        MessageBox.Show("Отель: \"" + hotel.Name + "\" был удалён");
+                    }
+                }
+                Base.BE.SaveChanges();
+                FrameClass.MainFrame.Navigate(new HotelsPage());
+            }
         }
     }
 }

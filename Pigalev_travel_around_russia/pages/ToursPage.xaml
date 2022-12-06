@@ -85,6 +85,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Button Content="Перейти к списку отелей" Grid.Row="3" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Right" Margin="0, 0, 20, 0" Click="Button_Click" Cursor="Hand"/>
+        <Button Content="Перейти к списку отелей" Grid.Row="3" Template="{StaticResource ResourceKey=CTButonMainPage}" Style="{StaticResource ResourceKey=btnSize}" HorizontalAlignment="Right" Margin="0, 0, 20, 0" Click="Button_Click" Cursor="Hand"/>
     </Grid>
 </Page>

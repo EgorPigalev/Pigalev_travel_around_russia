@@ -21,22 +21,22 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <TextBlock Text="Наименование" HorizontalAlignment="Right" Margin="5"/>
-                    <TextBlock Text="Количество звезд" HorizontalAlignment="Right" Margin="5"/>
-                    <TextBlock Text="Страна" HorizontalAlignment="Right" Margin="5"/>
-                    <TextBlock Text="Описание:" HorizontalAlignment="Right" Margin="5"/>
+                    <TextBlock Text="Наименование" Style="{StaticResource ResourceKey=tbNameOfFieldsLeft}"/>
+                    <TextBlock Text="Количество звезд" Style="{StaticResource ResourceKey=tbNameOfFieldsLeft}"/>
+                    <TextBlock Text="Страна" Style="{StaticResource ResourceKey=tbNameOfFieldsLeft}"/>
+                    <TextBlock Text="Описание:" Style="{StaticResource ResourceKey=tbNameOfFieldsLeft}"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <TextBox Name="tbName" Width="300" HorizontalAlignment="Left" Margin="5" MaxLength="100"/>
-                    <TextBox Name="tbCountOfStars" Width="300" HorizontalAlignment="Left" Margin="5" PreviewTextInput="TextBox_PreviewTextInput" TextAlignment="Center" MaxLength="1"/>
+                    <TextBox Name="tbName" Style="{StaticResource ResourceKey=tbNameOfFieldsRigth}" MaxLength="100"/>
+                    <TextBox Name="tbCountOfStars" Style="{StaticResource ResourceKey=tbNameOfFieldsRigth}" PreviewTextInput="TextBox_PreviewTextInput" TextAlignment="Center" MaxLength="1" ToolTip="Отель может принимать следующее значение количества звёзд: целое значение от 0 до 5"/>
                     <ComboBox Name="cbCountry" Width="300" HorizontalAlignment="Left" Margin="5"/>
                 </StackPanel>
             </Grid>
             <TextBox Name="tbDescription" TextWrapping="Wrap" AcceptsReturn="True" Height="300" Width="650"/>
         </StackPanel>
         <Grid Grid.Row="2">
-            <Button Name="btnBack" Content="Перейти к списку отелей" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="btnBack_Click"/>
-            <Button Name="btnAddUpd" Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Height="50" Width="300" Click="btnAddUpd_Click"/>
+            <Button Name="btnBack" Content="Перейти к списку отелей" Template="{StaticResource ResourceKey=CTButonMainPage}" Style="{StaticResource ResourceKey=btnSize}" HorizontalAlignment="Left" Margin="20, 0, 0, 0" Click="btnBack_Click"/>
+            <Button Name="btnAddUpd" Content="Добавить новый отель" Template="{StaticResource ResourceKey=CTButonMainPage}" Style="{StaticResource ResourceKey=btnSize}" Click="btnAddUpd_Click" Cursor="Hand"/>
         </Grid>
     </Grid>
 </Page>

@@ -15,7 +15,7 @@
                 <ContentControl Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
         </ControlTemplate>
-        <Style TargetType="Button">
+        <Style x:Key="btnMain" TargetType="Button">
             <Style.Setters>
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="Background" Value="#fac716"/>
@@ -78,6 +78,25 @@
                 <Setter Property="FontSize" Value="24"/>
                 <Setter Property="FontWeight" Value="Bold"/>
                 <Setter Property="Foreground" Value="#445c93"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="tbNameOfFieldsLeft" TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="tbNameOfFieldsRigth" TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="btnSize" TargetType="Button" BasedOn="{StaticResource ResourceKey=btnMain}">
+            <Style.Setters>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Width" Value="300"/>
             </Style.Setters>
         </Style>
     </Application.Resources>
