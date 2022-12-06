@@ -8,7 +8,7 @@
         Style="{StaticResource ResourceKey=wMainStyle}"
         Title="Путешествуй по России" Height="900" MinHeight="700" Width="1340" MinWidth="950" Icon="\resources\logo.png">
     <Grid>
-        <Frame Name = "fMain" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2">
+        <Frame Name = "fMain" NavigationUIVisibility="Hidden">
 
         </Frame>
     </Grid>
